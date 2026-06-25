@@ -56,6 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ActivityLogger.cs" />
+    <Compile Include="MiniGame.xaml.cs">
+      <DependentUpon>MiniGame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="respond.cs" />
     <Compile Include="TaskAssistant.cs" />
     <Compile Include="TaskItem.cs" />
@@ -76,6 +79,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MiniGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TaskManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
