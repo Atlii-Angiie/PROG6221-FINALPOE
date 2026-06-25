@@ -1,0 +1,265 @@
+﻿<Window x:Class="PROG6221_FINALPOE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROG6221_FINALPOE"
+        mc:Ignorable="d"
+               Title="CYBERBOT"
+        Height="600"
+        Width="1000"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="LightBlue">
+    <Grid>
+        <Grid x:Name="MainGrid" Visibility="Visible">
+
+            <!-- Logo -->
+            <Image 
+                Source="/logo.jpg" 
+                Height="200"
+                Width="300"
+                Margin="0,0,0,200"
+                   />
+            <!-- welcome message-->
+            <TextBlock
+                Text="Welcome to CYCBERBOT chatbot, click continue button"
+                Height="20"
+                TextAlignment="Center"
+                Margin="236,222,218,192"
+                FontFamily="Arial Rounded MT Bold" RenderTransformOrigin="0.5,0.5"
+                >
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.046"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+
+            <!-- button to continue-->
+            <Button 
+                Height="40"
+                Width="300"
+                Margin="250,299,250,95"
+                Background="AliceBlue"
+                Foreground="Black"
+                BorderThickness="0"
+                Cursor="Hand"
+                Content="Proceed"
+                Click="proceed"
+                />
+
+        </Grid>
+
+        <Grid x:Name="username_grid" Visibility="Hidden">
+
+            <!-- CYBER HEADER -->
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+
+                <Border Background="AliceBlue"
+            CornerRadius="12"
+            Padding="10"
+            Margin="0,0,0,5">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Person Icon -->
+                        <TextBlock Text="👤"
+                       FontSize="26"
+                       VerticalAlignment="Center"
+                       Margin="5"/>
+
+                        <!-- Username + BOT -->
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+
+                            <TextBlock x:Name="header_username"
+                           Text="User"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="Black"/>
+
+                            <!-- Glowing CYBERBOT -->
+                            <TextBlock x:Name="cyberbot_title"
+                           Text="CYBERBOT"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           Foreground="DeepSkyBlue"/>
+                        </StackPanel>
+
+                        <!-- Online indicator -->
+                        <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+
+                            <Ellipse Width="10" Height="10"
+                         Fill="LimeGreen"
+                         Margin="0,0,5,0"/>
+
+                            <TextBlock Text="Online"
+                           Foreground="Green"
+                           FontWeight="Bold"/>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+
+                <!-- WELCOME MESSAGE -->
+                <TextBlock Text="WELCOME, ASK ME ANYTHING ABOUT CYBERSECURITY"
+               FontSize="14"
+               FontWeight="Bold"
+               Foreground="DarkBlue"
+               TextAlignment="Center"/>
+
+                <!-- LIVE CLOCK -->
+                <TextBlock x:Name="clock_text"
+               Text="00:00:00"
+               FontSize="12"
+               Foreground="Gray"
+               TextAlignment="Center"/>
+
+            </StackPanel>
+            <!-- Logo -->
+            <Image 
+                Source="/logo.jpg" 
+                Height="150"
+                Width="300"
+                Margin="0,0,0,200"
+                   />
+            <!-- Hint message-->
+            <TextBlock
+                Text="Enter username"
+                Height="20"
+                Width="270"
+                TextAlignment="Justify"
+                Margin="0,30,0,0"
+                FontFamily="Arial Rounded MT Bold"
+                />
+
+            <!-- Enter/Prompt username-->
+            <TextBox
+                Height="40"
+                Width="270"
+                TextAlignment="Center"
+                Margin="0,100,0,0"
+                FontFamily="Arial Rounded MT Bold"
+                x:Name="usernames_input"
+                />
+
+            <!-- error message-->
+            <TextBlock
+         Text="please enter username to continue..."
+         Height="20"
+         Width="270"
+         TextAlignment="Justify"
+         Margin="0,180,0,0"
+         Foreground="Pink"
+         FontFamily="Arial Rounded MT Bold"
+         />
+
+            <!-- button to submit name-->
+            <Button 
+        Height="40"
+        Width="270"
+        Margin="0,250,0,0"
+        Content="submit username"
+        Click="submit_name"
+        Grid.Column="1"
+        FontSize="18"
+        FontWeight="Bold"
+        Background="DeepSkyBlue"
+        Foreground="Black"
+        BorderThickness="0"
+        Cursor="Hand"
+        />
+
+        </Grid>
+
+        <Grid x:Name="chat_grid" Visibility="Hidden">
+
+            <!-- List view to show messages show messages-->
+            <ListView  
+                x:Name="chats" 
+                Height="300"
+                Margin="0,0,0,120"
+                />
+
+
+            <!-- TextBox to prompt questions-->
+            <TextBox
+                x:Name="question"
+                Height="50"
+                Width="480"
+                Margin="0,300,300,0"
+                />
+
+            <!-- button to submit -->
+            <Button
+                Height="50"
+                Width="280"
+                Margin="490,300,0,0"
+                Content="send "
+                Click="send"
+                Grid.Column="1"
+                FontSize="18"
+                FontWeight="Bold"
+                Background="DeepSkyBlue"
+                Foreground="Black"
+                BorderThickness="0"
+                Cursor="Hand"        
+                />
+
+            <Button
+    x:Name="history_button"
+Height="50"
+Width="100"
+Margin="720,460,0,0"
+Content="History"
+Background="DeepSkyBlue"
+Foreground="Black"
+FontWeight="Bold"
+Click="show_history"/>
+            <ListView
+    x:Name="taskList"
+    Height="200"
+    Width="250"
+    Margin="730,100,10,0"
+    HorizontalAlignment="Right"
+    VerticalAlignment="Top"/>
+
+            <Button
+    Content="View Tasks"
+    Width="250"
+    Height="40"
+    Margin="730,310,10,0"
+    HorizontalAlignment="Right"
+    VerticalAlignment="Top"
+    Click="ViewTasks_Click"/>
+
+            <Button
+    Content="Delete Task"
+    Width="250"
+    Height="40"
+    Margin="730,360,10,0"
+    HorizontalAlignment="Right"
+    VerticalAlignment="Top"
+    Click="DeleteTask_Click"/>
+
+            <Button
+    Content="Complete Task"
+    Width="250"
+    Height="40"
+    Margin="730,410,10,0"
+    HorizontalAlignment="Right"
+    VerticalAlignment="Top"
+    Click="CompleteTask_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>
