@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ActivityLogger.cs" />
     <Compile Include="respond.cs" />
     <Compile Include="TaskAssistant.cs" />
     <Compile Include="TaskItem.cs" />
